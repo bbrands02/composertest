@@ -1,0 +1,21 @@
+version: '3.5'
+
+
+services:
+ 
+  php:
+    image: php:7.2-fpm-alpine
+    ports:
+      - "80:80"
+    
+  db:
+    image: postgres:10-alpine
+    environment:
+      - POSTGRES_DB=barry
+      - POSTGRES_USER=barry
+      - POSTGRES_PASSWORD=barry02
+    volumes:
+      - db-data:/var/lib/postgresql/data:rw
+
+volumes:
+  db-data: {}
